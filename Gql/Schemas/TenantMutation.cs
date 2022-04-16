@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using Geex.Common.Gql.Roots;
+using Geex.Common.Abstraction.Gql.Types;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants.Requests;
 
@@ -15,7 +14,7 @@ using MediatR;
 
 namespace Geex.Common.MultiTenant.Gql.Schemas
 {
-    public class TenantMutation : MutationTypeExtension<TenantMutation>
+    public class TenantMutation : Mutation<TenantMutation>
     {
         /// <inheritdoc />
         protected override void Configure(IObjectTypeDescriptor<TenantMutation> descriptor)

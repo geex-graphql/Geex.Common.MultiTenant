@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Geex.Common.Abstraction.Storage;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 
@@ -17,17 +18,18 @@ namespace Geex.Common.MultiTenant.Core.Aggregates.Tenants
         public string Name { get; set; }
         public bool IsEnabled { get; set; }
 
-        internal static Tenant Create(string code, string name)
+        internal static Tenant Create(string code, string name, Dictionary<string, object> externalInfo = default)
         {
             return new Tenant()
             {
                 Code = code,
                 Name = name,
                 IsEnabled = true,
+                ExternalInfo = externalInfo ?? new()
             };
         }
 
         /// <inheritdoc />
-        public Dictionary<string, object> ExternalInfo { get; set; } = new ();
+        public Dictionary<string, object> ExternalInfo { get; set; } = new();
     }
 }

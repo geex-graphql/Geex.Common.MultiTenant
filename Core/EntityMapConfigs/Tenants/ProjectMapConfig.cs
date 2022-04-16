@@ -5,9 +5,9 @@ using MongoDB.Bson.Serialization;
 
 namespace Geex.Common.MultiTenant.Core.EntityMapConfigs.Tenants
 {
-    public class TenantMapConfig : IEntityMapConfig<Tenant>
+    public class TenantMapConfig : EntityMapConfig<Tenant>
     {
-        public void Map(BsonClassMap<Tenant> map)
+        public override void Map(BsonClassMap<Tenant> map)
         {
             map.AutoMap();
         }

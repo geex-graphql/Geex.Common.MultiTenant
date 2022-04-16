@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Geex.Common.Abstraction.Gql.Inputs;
-using Geex.Common.Gql.Roots;
+using Geex.Common.Abstraction.Gql.Types;
 using Geex.Common.MultiTenant.Api;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 
@@ -16,7 +16,7 @@ using MediatR;
 
 namespace Geex.Common.MultiTenant.Gql.Schemas
 {
-    public class TenantQuery : QueryTypeExtension<TenantQuery>
+    public class TenantQuery : Query<TenantQuery>
     {
         /// <inheritdoc />
         protected override void Configure(IObjectTypeDescriptor<TenantQuery> descriptor)

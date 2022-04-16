@@ -12,9 +12,9 @@ namespace Geex.Common.MultiTenant.Core.Migrations
     /// <summary>
     /// 初始化租户表
     /// </summary>
-    public class _637812105406243769_初始化租户表 : IMigration
+    public class _637812105406243769_初始化租户表 : DbMigration
     {
-        public async Task UpgradeAsync(DbContext dbContext)
+        public override async Task UpgradeAsync(DbContext dbContext)
         {
             await dbContext.Collection<Tenant>().Indexes.CreateManyAsync(new[]
             {
