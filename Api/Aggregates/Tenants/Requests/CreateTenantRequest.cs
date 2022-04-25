@@ -12,7 +12,7 @@ namespace Geex.Common.MultiTenant.Api.Aggregates.Tenants.Requests
     {
         public string Code { get; set; }
         public string Name { get; set; }
-        public Dictionary<string, object> ExternalInfo { get; set; }
+        public Dictionary<string, object>? ExternalInfo { get; set; }
 
     }
 }

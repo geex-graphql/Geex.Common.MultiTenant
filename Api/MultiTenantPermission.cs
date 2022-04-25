@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,12 +9,14 @@ using Geex.Common.Authorization;
 
 using HotChocolate.AspNetCore.Authorization;
 
+using Humanizer;
+
 namespace Geex.Common.MultiTenant.Api
 {
     public class MultiTenantPermission : AppPermission<MultiTenantPermission>
     {
         /// <inheritdoc />
-        public MultiTenantPermission(string value) : base(value)
+        public MultiTenantPermission(string value) : base($"{typeof(MultiTenantPermission).DomainName()}_{value}")
         {
         }
         public class TenantPermission : MultiTenantPermission
