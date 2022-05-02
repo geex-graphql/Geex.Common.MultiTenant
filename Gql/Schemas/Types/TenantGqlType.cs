@@ -1,3 +1,4 @@
+using Geex.Common.Abstraction.MultiTenant;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 using Geex.Common.MultiTenant.Core.Aggregates.Tenants;
 using HotChocolate.Types;

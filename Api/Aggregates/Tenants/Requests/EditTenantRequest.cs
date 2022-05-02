@@ -1,4 +1,5 @@
 ﻿
+using Geex.Common.Abstraction.MultiTenant;
 using MediatR;
 
 namespace Geex.Common.MultiTenant.Api.Aggregates.Tenants.Requests;

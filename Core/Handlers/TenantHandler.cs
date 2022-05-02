@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Geex.Common.Abstraction.Auditing.Events;
 using Geex.Common.Abstraction.Entities;
 using Geex.Common.Abstraction.Gql.Inputs;
+using Geex.Common.Abstraction.MultiTenant;
 using Geex.Common.Abstractions;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants.Requests;

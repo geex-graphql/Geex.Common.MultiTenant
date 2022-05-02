@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Geex.Common.Abstraction.Gql.Types;
+using Geex.Common.Abstraction.MultiTenant;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants.Requests;
 

@@ -16,7 +16,7 @@ namespace Geex.Common.MultiTenant.Core
     public class TenantDataFilter : ExpressionDataFilter<ITenantFilteredEntity>
     {
         /// <inheritdoc />
-        public TenantDataFilter(LazyFactory<ICurrentTenant> currentTenant) : base(PredicateBuilder.New<ITenantFilteredEntity>(entity => currentTenant.Value.Code == entity.TenantCode), null)
+        public TenantDataFilter(LazyService<ICurrentTenant> currentTenant) : base(PredicateBuilder.New<ITenantFilteredEntity>(entity => currentTenant.Value.Code == entity.TenantCode), null)
         {
         }
     }

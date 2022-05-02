@@ -13,9 +13,9 @@ namespace Geex.Common.MultiTenant.Core
 {
     public class TenantSaveInterceptor : SaveInterceptor<ITenantFilteredEntity>
     {
-        private readonly LazyFactory<ICurrentTenant> _currentTenant;
+        private readonly LazyService<ICurrentTenant> _currentTenant;
 
-        public TenantSaveInterceptor(LazyFactory<ICurrentTenant> currentTenant)
+        public TenantSaveInterceptor(LazyService<ICurrentTenant> currentTenant)
         {
             this._currentTenant = currentTenant;
         }
