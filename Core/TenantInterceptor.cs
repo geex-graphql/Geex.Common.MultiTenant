@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 using Geex.Common.Abstraction.MultiTenant;
 using Geex.Common.Abstractions;
 using Geex.Common.MultiTenant.Api;
+
 using MongoDB.Entities.Interceptors;
 
 namespace Geex.Common.MultiTenant.Core
 {
-    public class TenantSaveInterceptor : SaveInterceptor<ITenantFilteredEntity>
+    public class TenantInterceptor : DataInterceptor<ITenantFilteredEntity>
     {
         private readonly LazyService<ICurrentTenant> _currentTenant;
 
-        public TenantSaveInterceptor(LazyService<ICurrentTenant> currentTenant)
+        public TenantInterceptor(LazyService<ICurrentTenant> currentTenant)
         {
             this._currentTenant = currentTenant;
         }
@@ -26,5 +27,8 @@ namespace Geex.Common.MultiTenant.Core
             entity.SetTenant(_currentTenant.Value.Code);
 #pragma warning restore CS0618
         }
+
+        /// <inheritdoc />
+        public override InterceptorExecuteTiming InterceptAt => InterceptorExecuteTiming.Attach;
     }
 }

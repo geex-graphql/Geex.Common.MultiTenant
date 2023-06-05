@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Geex.Common.Abstraction.MultiTenant;
 using Geex.Common.Abstraction.Storage;
 using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
@@ -12,7 +14,7 @@ using Geex.Common.MultiTenant.Api.Aggregates.Tenants;
 
 namespace Geex.Common.MultiTenant.Core.Aggregates.Tenants
 {
-    public class Tenant : Entity, ITenant
+    public class Tenant : Entity<Tenant>, ITenant
     {
         public string Code { get; set; }
 
@@ -20,14 +22,14 @@ namespace Geex.Common.MultiTenant.Core.Aggregates.Tenants
         public string Name { get; set; }
         public bool IsEnabled { get; set; }
 
-        internal static Tenant Create(string code, string name, Dictionary<string, object> externalInfo = default)
+        internal static Tenant Create(string code, string name, JsonNode externalInfo = default)
         {
             return new Tenant()
             {
                 Code = code,
                 Name = name,
                 IsEnabled = true,
-                ExternalInfo = externalInfo ?? new()
+                ExternalInfo = externalInfo ?? JsonNode.Parse("{}")
             };
         }
 
@@ -37,6 +39,6 @@ namespace Geex.Common.MultiTenant.Core.Aggregates.Tenants
         }
 
         /// <inheritdoc />
-        public Dictionary<string, object> ExternalInfo { get; set; } = new();
+        public JsonNode? ExternalInfo { get; set; }
     }
 }
